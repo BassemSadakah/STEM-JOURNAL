@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Journal</title>
+    <link href="/fonts.css" rel="stylesheet">
+    <style media="screen">
+
+    body{
+      margin: 0px 0px;
+      height:100%;
+      background: #fff7f7;
+    }
+
+    #div_welcome{
+      background-color: #A5C540;
+      height: 350px;
+      width: 100%;
+      box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
+    }
+    .question{
+      width: calc(100%-100px);
+      min-height: 300px;
+      display: block;
+      margin: 17px;
+      margin-top: 10px;
+      background: #f1eded;
+      border-radius: 5px;
+      border: 1px solid #d8d4d4;
+      box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.1);
+      margin-bottom: 0px;
+      padding-bottom: 0px;
+    }
+    h2{
+      text-align:center;
+      color:white;
+      font-size:3em;
+      margin:0 0;
+      padding-top:8%;
+      padding-bottom:3.5%;
+
+      font-family:'Lobster', cursive;
+    }
+    h3{
+      text-align:center;
+      color:white;
+      font-size:1em;
+      margin:0 0;
+      /* padding-top:9%; */
+      padding: 1% 0;
+      font-family:'arial';
+    }
+    h4{
+      font-size: 2em;
+      text-align: center;
+      color: #2d2929;
+    }
+    h5{
+      padding: 0px 5px;
+      font-size: 1.2em;
+      font-family: 'Roboto','RobotoDraft','Helvetica','Arial','sans-serif';
+    }
+    textarea{
+      border: 1px solid #d8d4d4;
+      width: calc(100% - 2px);
+      margin: 0 0;
+      padding: 0 0;
+      resize: none;
+      border-radius: 5px;
+      margin-bottom: 0px;
+      font-size: 1.2em;
+
+          }
+    button{
+      box-shadow: 2px 2px 1.5px 2px rgba(0,0,0,0.1);
+      border: none;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 30px;
+      width: 270px;
+      height: 60px;
+      background: #7cbb52;
+      border-radius: 11px;
+      color: white;
+      margin-bottom: 15px;
+          }
+    #logout{
+      box-shadow: 0px 0px 2px 1px rgba(0,50,0,0.1);
+      width: auto;
+      height: auto;
+      font-size: 1.25em;
+      background: #9aca54;
+      border-radius: 2px;
+      margin:0 auto;
+          }
+    #logout:hover{
+      box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.1);
+    }
+    button:hover{
+    	box-shadow: 0px 0px 2px 2.5px rgba(0,0,0,0.2);
+      cursor: pointer;
+        	}
+  	button:focus{
+  		outline: none;
+        	}
+    #clock{
+      /* float: right; */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    h1{
+      text-align:center;
+      float: right;
+      color:white;
+      font-size:1em;
+      margin:0 0;
+      /* padding-top:9%; */
+      /* padding-top:9%; */
+      padding: 1% 0;
+      font-family:'arial';
+    }
+
+    </style>
+
+  </head>
+  <body>
+<div class="" id='div_welcome'>
+  <h2>Welcome to Journally</h2>
+<form class="" action="{{url_for('logout')}}" method="get">
+
+  <button type="submit" id='logout' name="button">Sign Out</button>
+</form>
+  <h3>Logged in as {{id}}</h3>
+  {%if journal_running != True%}
+  <h3>No journals are running now</h3>
+  {%endif%}
+
+  {%if journal_running %}
+  {%if already_submit == 1%}
+  <h3>{{status}}</h3>
+  <!-- lllllllllllllllllllllllllllllllllllllllll -->
+  {%else%}
+  <div id='clock'>
+    <h1 id='miniuts'>00</h1>
+    <h1>:</h1>
+    <h1 id='seconds'>00</h1>
+  </div>
+
+  {%endif%}
+  <!-- lllllllllllllllllllllllllllllllllllllllll -->
+  {%endif%}
+
+</div>
+
+{%if journal_running and already_submit==0 %}
+
+<form class="" action="{{url_for('submit_journal')}}" method="post">
+
+<div class="question">
+<h4>Question 1</h4>
+<h5> {{question1}}</h5>
+<textarea name="question1" rows="8" cols="80"></textarea>
+</div>
+
+<div class="question">
+  <h4>Question 2</h4>
+  <h5>{{question2}}</h5>
+  <textarea name="question2" rows="8" cols="80"></textarea>
+</div>
+
+<div class="question">
+  <h4>Question 3</h4>
+  <h5>{{question3}}</h5>
+  <textarea name="question3" rows="8" cols="80" style="resize:none;"></textarea>
+</div>
+{%if question4 != "" %}
+<div class="question">
+  <h4>Question 4</h4>
+  <h5>{{question4}}</h5>
+  <textarea name="question4" rows="8" cols="80" style="resize:none;"></textarea>
+</div>
+{%endif %}
+<button type="submit" name="journal_data">Submit</button>
+</form>
+{%endif%}
+  </body>
+
+  <script type="text/javascript">
+    miniuts=document.querySelector('#miniuts');
+    seconds=document.querySelector('#seconds');
+    div_clock=document.querySelector('#clock')
+    clock_Interval=setInterval(function(){
+       x=((Number(seconds.innerHTML))+1);
+       if(x<10){
+         seconds.innerText='0'+String(x);
+       }
+       else if (x==60) {
+         if(miniuts.innerText=='59'){
+           div_clock.innerHTML='<h1>Time is UP</h1>';
+           clearInterval(clock_Interval);
+
+         }
+         else{
+           x=((Number(miniuts.innerHTML))+1);
+           if(x<10){
+              miniuts.innerText='0'+String(x);
+           }
+           else{
+             miniuts.innerText=x;
+
+           }
+        seconds.innerText='00';}
+       }
+       else{
+         seconds.innerText=x;
+       }
+
+        },1000);
+
+  </script>
+</html>

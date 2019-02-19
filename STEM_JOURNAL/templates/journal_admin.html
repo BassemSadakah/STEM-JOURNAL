@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Journal_Admin</title>
+    <link href="/fonts.css" rel="stylesheet">
+    <style media="screen">
+
+    body{
+      margin: 0px 0px;
+      height:100%;
+      background: #fff7f7;
+    }
+
+    #div_welcome{
+      background-color: #A5C540;
+      height: 350px;
+      width: 100%;
+      box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
+    }
+
+    h2{
+      text-align:center;
+      color:white;
+      font-size:3em;
+      margin:0 0;
+      padding-top:9%;
+      padding-bottom: 4%;
+      font-family:'Lobster', cursive;
+    }
+    h3{
+      text-align:center;
+      color:white;
+      font-size:1em;
+      margin:0 0;
+      padding-top:4%;
+      font-family:'arial';
+    }
+
+    button{
+      box-shadow: 2px 2px 1.5px 2px rgba(0,0,0,0.1);
+      border: none;
+      display: block;
+      /* margin-left: auto; */
+      /* margin-right: auto; */
+      margin-right: 1%;
+      margin-top: 30px;
+      width: 270px;
+      height: 60px;
+      background: #7cbb52;
+      border-radius: 11px;
+      color: white;
+      margin-bottom: 15px;
+      font-size:1.2em;
+          }
+    button:hover{
+    	box-shadow: 0px 0px 2px 2.5px rgba(0,0,0,0.2);
+      cursor: pointer;
+        	}
+  	button:focus{
+  		outline: none;
+        	}
+    h4{
+      font-size: 2em;
+      text-align: center;
+      color: #2d2929;
+        }
+    h5{
+      padding: 0px 5px;
+      font-size: 1.2em;
+      font-family: 'Roboto','RobotoDraft','Helvetica','Arial','sans-serif';
+        }
+    textarea{
+      border: 1px solid #d8d4d4;
+      width: calc(100% - 2px);
+      margin: 0 0;
+      padding: 0 0;
+      resize: none;
+      border-radius: 5px;
+      margin-bottom: 0px;
+      font-size: 1.2em;
+
+          }
+    .question{
+      width: calc(100%-100px);
+      min-height: 300px;
+      display: block;
+      margin: 20px;
+      margin-top: 10px;
+      background: #f1eded;
+      border-radius: 5px;
+      border: 1px solid #d8d4d4;
+      box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.1);
+      margin-bottom: 0px;
+      padding-bottom: 0px;
+        }
+    #logout{
+      box-shadow: 0px 0px 2px 1px rgba(0,50,0,0.1);
+      width: auto;
+      height: auto;
+      font-size: 1.25em;
+      background: #9aca54;
+      border-radius: 2px;
+      margin:0 auto;
+          }
+    #logout:hover{
+      box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.1);
+        }
+        #div_buttons{
+          display: flex;
+       align-items: center;
+       justify-content: center;
+        }
+        /* ********************************************************** */
+
+
+
+
+        #div_download{
+          border: 1px solid rgba(0,0,0,0.2);;
+          border-radius: 5px;
+          overflow: auto;
+          width: auto;
+          /* display: flex; */
+          /* align-items: center; */
+          /* justify-content: center; */
+          margin: 0 10%;
+          box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.1);
+          visibility: hidden;
+        }
+        .div_div_div_check{
+          display: flex;
+          justify-content: center;
+        }
+
+
+        p{
+          font-size: 1.2em;
+          margin: 0 3px;
+        }
+        span{
+          width: 100%;
+          overflow: auto;
+        }
+        label,#button_download,.jj{
+
+        }
+        .jj{
+          overflow: auto;
+        }
+        .center{
+          display: flex;
+          /* width: auto; */
+          align-items: center;
+          justify-content: center;
+        }
+        .div_checkbox_new{
+          border: 1px solid red;
+          border-color: rgba(0,0,0,0.3);
+          border-radius: 3px;
+          overflow: auto;
+          /* display: inline-block; */
+          /* background: white; */
+          background: #f7f7f7;
+          /* width: 5ch; */
+          /* width: -webkit-fit-content; */
+          /* margin: ; */
+          box-shadow: 0px 0px 5px 0.5px rgba(0, 0, 0, 0.2);
+          margin-top: 7px;
+          margin-left: 10px;
+          margin-right: 10px;
+          padding-right: 3px;
+          display: block;
+          cursor: pointer;
+          /* border-color: red; */
+
+          }
+          .div_checkbox_new:hover{
+            box-shadow: 0px 0px 3.5px 2px rgba(0, 0, 0, 0.2);
+
+          }
+          .label_checkbox{
+          font-size: 1.5em;
+          font-family: Roboto;
+          color: rgba(0,0,0,0.8);
+          cursor: pointer;
+
+          }
+          .checkbox{
+            height: 1.2em;
+            background: white;
+            border-radius: 0px;
+            outline: none;
+            background-color: white;
+          }
+          #label_select{
+            font-size: 1.5em;
+            margin: 15px;
+            font-family: Roboto;
+
+
+          }
+          #div_check_2{
+            border: 1px solid rgba(0,0,0,0.2);
+            overflow: auto;
+            margin: 5px;
+            padding-bottom: 10px;
+            border-radius: 3px;
+
+          }
+          #div_download_archive{
+            border: 1px solid rgba(0,0,0,0.2);
+            overflow: auto;
+            margin: 5px;
+            padding-bottom: 10px;
+            border-radius: 3px;
+          }
+          #label_download_archive{
+            font-size: 1.5em;
+            margin: 15px;
+            font-family: Roboto;
+          }
+          select{
+            border:none;
+            /* width:1em; */
+            font-size: 1.2em;
+            background: #d3dccd;
+            border-radius: 3px;
+          }
+
+
+
+
+        /* ********************************************************** */
+    </style>
+  </head>
+
+
+  <body>
+<div class="" id='div_welcome'>
+  <h2>Welcome Admin</h2>
+  <form class="" action="{{url_for('logout')}}" method="get">
+
+    <button type="submit" id='logout' name="button">Sign Out</button>
+  </form>
+  <h3>No Journals are running now</h3>
+</div>
+
+<div id="div_new_journal" class="">
+  <div class="" id='div_buttons'>
+
+  <button  type="submit" name="button" id="responses_download">Download Respones</button>
+
+<button  type="button" name="button" id="new_journal">Create new Journal</button>
+</div>
+
+</div>
+
+<!-- *********************************************** -->
+
+<div class=""id='div_new'>
+
+</div>
+
+<div id="div_download" >
+
+<div id=div_check_2>
+  <div class="center">
+
+  <label id='label_select' for="">Select Desired Coulmns </label>
+</div>
+<form class="" action="{{url_for('download')}}" method="post">
+
+  <div class="div_checkbox_new" id='div_checkbox1'>
+    <!-- <input type='hidden' value='' name='checkbox_name'> -->
+    <input type="checkbox" name="checkbox_name"  class="checkbox" value="Name" id="checkbox1">
+    <label for="" class="label_checkbox">Name</label>
+  </div>
+
+  <div class="div_checkbox_new" id='div_checkbox2'>
+    <!-- <input type='hidden' value='' name='checkbox_email'> -->
+    <input type="checkbox" name="checkbox_email"  class="checkbox" value="Email" id="checkbox2">
+    <label for="" class="label_checkbox">Email</label>
+  </div>
+
+  <div class="div_checkbox_new" id='div_checkbox3'>
+    <!-- <input type='hidden' value='' name='checkbox_id'> -->
+    <input type="checkbox" name="checkbox_id"  class="checkbox"value="ID" id="checkbox3">
+    <label for="" class="label_checkbox">ID</label>
+  </div>
+
+  <div class="div_checkbox_new" id='div_checkbox4'>
+    <!-- <input type='hidden' value='' name='checkbox_secret'> -->
+    <input type="checkbox" name="checkbox_secret"  class="checkbox"value="Secret_Number" id="checkbox4">
+    <label for="" class="label_checkbox">Secret No.</label>
+  </div>
+</div>
+
+
+<div class="center" id='div_download_archive'>
+  <label id='label_download_archive' for="">Download From Archive</label>
+<select class="" name="select">
+  {% for i in journals %}
+  <option value='{{i[0]}}'>Journal {{i[0] }}  {{i[1]}}</option>
+  {% endfor %}
+
+  <!-- <option value="">Journal 1 2018/3/2</option> -->
+  <!-- <option value="">Journal 2 2018/3/2</option> -->
+
+</select>
+</div>
+
+
+
+
+<div class="center">
+
+  <button type="submit" name="button" id="button_download">Download</button>
+
+</div>
+
+</form>
+
+
+
+<!-- *********************************************** -->
+  </body>
+
+<script type="text/javascript">
+var new_journal=document.querySelector("#new_journal");
+var div_new_journal=document.querySelector("#div_new");
+var div_download=document.querySelector('#div_download');
+
+new_journal.addEventListener('click',function(){
+div_new_journal.innerHTML="<form action=\"{{url_for('new_journal')}}\" method=\"post\"><div class=\"question\"><h4>Question 1</h4><textarea name=\"question1\" rows=\"8\" cols=\"80\"></textarea></div><div class=\"question\">  <h4>Question 2</h4>  <textarea name=\"question2\" rows=\"8\" cols=\"80\"></textarea></div><div class=\"question\">  <h4>Question 3</h4>  <textarea name=\"question3\" rows=\"8\" cols=\"80\" style=\"resize:none;\"></textarea></div><div class=\"question\">  <h4>Question 4 </h4>  <textarea name=\"question4\" rows=\"8\" cols=\"80\" style=\"resize:none;\"></textarea></div><div class=\'center\'><button id =\"journal_save\" type=\"submit\" name=\"button\">Save and Start</button></div></form>"
+div_download.style.visibility='hidden';
+div_download.style.height='0px';
+
+
+});
+
+
+var responses_download=document.querySelector('#responses_download');
+responses_download.addEventListener('click',function(){
+  div_download.style.visibility='visible';
+  div_download.style.height='auto';
+
+  div_new_journal.innerHTML=""
+    // console.log('d');
+});
+
+document.querySelector('#div_checkbox1').addEventListener('click',function(){
+document.querySelector('#checkbox1').checked=!(document.querySelector('#checkbox1').checked);
+document.querySelector('#div_checkbox1').style.borderColor='#41a806';
+});
+
+document.querySelector('#div_checkbox2').addEventListener('click',function(){
+document.querySelector('#checkbox2').checked=!(document.querySelector('#checkbox2').checked);
+document.querySelector('#div_checkbox2').style.borderColor='#41a806';
+});
+
+document.querySelector('#div_checkbox3').addEventListener('click',function(){
+document.querySelector('#checkbox3').checked=!(document.querySelector('#checkbox3').checked);
+document.querySelector('#div_checkbox3').style.borderColor='#41a806';
+});
+
+document.querySelector('#div_checkbox4').addEventListener('click',function(){
+document.querySelector('#checkbox4').checked=!(document.querySelector('#checkbox4').checked);
+document.querySelector('#div_checkbox4').style.borderColor='#41a806';
+});
+
+
+
+
+</script>
+
+</html>
