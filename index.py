@@ -184,10 +184,13 @@ def submit_sign_up():
 
 @app.route("/done",methods=['POST'])
 def submit_journal():
-	question1=request.form.get('question1')
-	question2=request.form.get('question2')
-	question3=request.form.get('question3')
-	question4=request.form.get('question4')
+	question1=request.form.get('question1').replace('\r\n','     ').replace('\n\r','      ').replace('\n','      ')
+	question2=request.form.get('question2').replace('\r\n','     ').replace('\n\r','      ').replace('\n','      ')
+	question3=request.form.get('question3').replace('\r\n','     ').replace('\n\r','      ').replace('\n','      ')
+	if request.form.get('question4')!=None :
+		question4=request.form.get('question4').replace('\r\n','     ').replace('\n\r','      ').replace('\n','      ')
+	else:
+		question4=' '
 	username=request.cookies.get('user')
 	password=request.cookies.get('password')
 	global u_data
